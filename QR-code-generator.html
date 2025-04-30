@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create free, colorful QR codes with our easy-to-use QR Code Generator. Customize with logos, colors, and frames for your website, business, or personal use.">
+    <meta name="keywords" content="QR code generator, free QR code, custom QR code, colorful QR code, SEO-friendly QR code, Google Ads">
+    <meta name="author" content="Your Website Name">
+    <meta name="robots" content="index, follow">
+    <title>Free QR Code Generator - Custom & Colorful QR Codes</title>
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Free QR Code Generator - Custom & Colorful QR Codes">
+    <meta property="og:description" content="Generate vibrant, customizable QR codes for free. Perfect for websites, marketing, and personal use with an easy-to-use interface.">
+    <meta property="og:image" content="https://yourwebsite.com/images/qr-code-og-image.jpg">
+    <meta property="og:url" content="https://yourwebsite.com/qr-code-generator">
+    <meta property="og:type" content="website">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "QR Code Generator",
+        "description": "A free, user-friendly tool to create custom QR codes with colorful designs and logo integration.",
+        "url": "https://yourwebsite.com/qr-code-generator",
+        "applicationCategory": "Utility",
+        "operatingSystem": "All"
+    }
+    </script>
+
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- QRCode.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+    <!-- Google Ads Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f3e7ff, #e0f7ff);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .qr-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        .color-picker {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #e5e7eb;
+        }
+        #qrCanvas {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s;
+        }
+        .ad-container {
+            margin: 2rem auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-purple-600 to-blue-500 text-white py-4">
+        <div class="container">
+            <h1 class="text-3xl font-bold">Free QR Code Generator</h1>
+            <p class="mt-2">Create vibrant, custom QR codes in seconds!</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-8">
+        <div class="qr-card">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Generate Your QR Code</h2>
+            <form id="qrForm" onsubmit="event.preventDefault(); generateQRCode();">
+                <div class="mb-4">
+                    <label for="qrText" class="block text-gray-700 font-medium mb-2">Enter URL or Text</label>
+                    <input type="text" id="qrText" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="e.g., https://yourwebsite.com" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-medium mb-2">Customize Colors</label>
+                    <div class="flex space-x-4">
+                        <div>
+                            <label for="fgColor" class="block text-sm text-gray-600">Foreground Color</label>
+                            <input type="color" id="fgColor" class="color-picker" value="#000000">
+                        </div>
+                        <div>
+                            <label for="bgColor" class="block text-sm text-gray-600">Background Color</label>
+                            <input type="color" id="bgColor" class="color-picker" value="#ffffff">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="logoUpload" class="block text-gray-700 font-medium mb-2">Add Logo (Optional)</label>
+                    <input type="file" id="logoUpload" accept="image/*" class="w-full p-3 border rounded-lg">
+                </div>
+
+                <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">Generate QR Code</button>
+            </form>
+
+            <div id="qrCanvas" class="mt-6"></div>
+
+            <button id="downloadBtn" class="download-btn w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors hidden">Download QR Code</button>
+        </div>
+
+        <!-- Google Ads -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3019985057781583"
+     crossorigin="anonymous"></script>"
+                 data-ad-slot="ca-app-pub-3019985057781583/3948072575"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true">ca-app-pub-3019985057781583/5787767858</ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container">
+            <p>&copy; 2025 Your Website Name. All rights reserved.</p>
+            <nav class="mt-2">
+                <a href="/privacy" class="text-gray-300 hover:text-white mx-2">Privacy Policy</a>
+                <a href="/terms" class="text-gray-300 hover:text-white mx-2">Terms of Service</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        function generateQRCode() {
+            const qrText = document.getElementById('qrText').value;
+            const fgColor = document.getElementById('fgColor').value;
+            const bgColor = document.getElementById('bgColor').value;
+            const logoUpload = document.getElementById('logoUpload').files[0];
+            const qrCanvas = document.getElementById('qrCanvas');
+            const downloadBtn = document.getElementById('downloadBtn');
+
+            // Clear previous QR code
+            qrCanvas.innerHTML = '';
+
+            // Generate QR Code
+            const qrCode = new QRCode(qrCanvas, {
+                text: qrText,
+                width: 200,
+                height: 200,
+                colorDark: fgColor,
+                colorLight: bgColor,
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            // Handle Logo
+            if (logoUpload) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.src = e.target.result;
+                    img.onload = function() {
+                        const canvas = qrCanvas.querySelector('canvas');
+                        const ctx = canvas.getContext('2d');
+                        const logoSize = 40;
+                        const x = (canvas.width - logoSize) / 2;
+                        const y = (canvas.height - logoSize) / 2;
+                        ctx.drawImage(img, x, y, logoSize, logoSize);
+                    };
+                };
+                reader.readAsDataURL(logoUpload);
+            }
+
+            // Enable Download Button
+            downloadBtn.classList.remove('hidden');
+            downloadBtn.onclick = function() {
+                const canvas = qrCanvas.querySelector('canvas');
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'qr-code.png';
+                link.click();
+            };
+        }
+    </script>
+</body>
+</html>
